@@ -1,4 +1,4 @@
-# Cloud-Stream-Tracker-
+# Cloud-Stream-Tracker
 Cloud Stream Tracker deployed on Google Cloud Platform. Utilizes GCP VM's for hosting. Built on Flask with MySQL, GCS and Pub/Sub APIs.
 
 Users can access file content via an IP address hosted on a virtual machine (VM) within GCP. With the help of an HTTP request generator, 
