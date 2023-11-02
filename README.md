@@ -1,9 +1,9 @@
 # Cloud-Stream-Tracker-Pub-Sub-
-Cloud Stream Tracker deployed on Google Cloud Platform. Utilizes GCP VM's for hosting. Built on Flask, with GCS and Pub/Sub APIs.
+Cloud Stream Tracker deployed on Google Cloud Platform. Utilizes GCP VM's for hosting. Built on Flask with MySQL, GCS and Pub/Sub APIs.
 
 Users can access file content via an IP address hosted on a virtual machine (VM) within GCP. With the help of an HTTP request generator, 
 the system tracks each request. Any requests deemed erroneous, especially those originating from simulated 
-"banned countries", are relayed between VMs using Google's Pub/Sub API.
+"banned countries", are relayed between VMs using Google's Pub/Sub API. Requests are stored in a MySQL instances hosted on GCP.
 
 Below is a snapshot showcasing http access via browser, the generated requests and the corresponding erroneous request logs from the banned locations:
 
