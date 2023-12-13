@@ -11,14 +11,7 @@ app = Flask(__name__)
 
 logging.basicConfig(filename='app1.log', filemode='w', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-PROJECT_ID = 'ds561-398719'
-TOPIC_NAME = 'error-topic'
 BANNED_COUNTRIES = ["North Korea", "Iran", "Cuba", "Myanmar", "Iraq", "Libya", "Sudan", "Zimbabwe", "Syria"]
-
-#PubSub and Storage
-storage_client = storage.Client()
-publisher = pubsub_v1.PublisherClient()
-topic_path = publisher.topic_path(PROJECT_ID, TOPIC_NAME)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -29,11 +22,18 @@ try:
     DB_USER = os.getenv('DB_USER')
     DB_PASSWORD = os.getenv('DB_PASSWORD')
     DB_NAME = os.getenv('DB_NAME')
-      
+    PROJECT_ID = os.getenv('PROJECT_ID')  
+    TOPIC_NAME = os.getenv('TOPIC_NAME')  
+    BUCKET_NAME = os.getenv('BUCKET_NAME')
 
 except Exception as e:
     logging.error("Error getting data from env: %s", str(e))
     #print('connector error')
+
+#PubSub and Storage
+storage_client = storage.Client()
+publisher = pubsub_v1.PublisherClient()
+topic_path = publisher.topic_path(PROJECT_ID, TOPIC_NAME) if PROJECT_ID and TOPIC_NAME else None
     
 connector = Connector()
 
@@ -50,7 +50,6 @@ def getconn():
         return conn
     except Exception as e:
             logging.error("Error from connector: %s", str(e))
-            #print('1')
 
 # create connection pool with 'creator' argument to our connection object function
 try:
@@ -60,9 +59,6 @@ try:
     )
 except Exception as e:
     logging.error("Error from pool: %s", str(e))
-    #print('2')
-    
-
 
 # Function to insert request data into the database
 def insert_request_data(country, client_ip, gender, age, income, is_banned, time_of_day, requested_file):
@@ -145,7 +141,7 @@ def file_server(path):
         try:
         
             filename = path.lstrip('/')
-            filename = filename.replace('bu-ds561-bwong778-hw2-bucket/', '')
+            filename = filename.replace(f'{BUCKET_NAME}/', '')
             
             country = request.headers.get('X-country')
             is_banned = country in BANNED_COUNTRIES
@@ -165,7 +161,7 @@ def file_server(path):
                 return 'Banned country', 400
 
             #removed storage client initalization from here
-            bucket = storage_client.bucket('bu-ds561-bwong778-hw2-bucket')         
+            bucket = storage_client.bucket(BUCKET_NAME)         
             blob = bucket.blob(filename) 
             if not blob.exists():
                 logging.error('File not found:', 404)
