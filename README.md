@@ -10,4 +10,6 @@ Below is a snapshot showcasing http access via browser, the generated requests a
 
 ![2DA4D11A-A5CD-4B52-AC04-D59B09BF9CA0_1_201_a](https://github.com/brianwong778/Cloud-Stream-Tracker-Pub-Sub-/assets/113395187/6bfe1c61-d028-4b28-ac8d-cf25f52fff53)
 
-![B9454E87-30E8-4725-A306-AF10747E15A9_1_201_a](https://github.com/brianwong778/Cloud-Stream-Tracker-Pub-Sub-/assets/113395187/a68cb35b-c454-451d-bdda-01df7db86f7a)
+![ezgif com-video-to-gif-converted](https://github.com/brianwong778/Cloud-Stream-Tracker/assets/113395187/f2873fc9-5530-479a-8cac-c30c10664965)
+
+![Screenshot 2023-12-12 at 9 48 28 PM](https://github.com/brianwong778/Cloud-Stream-Tracker/assets/113395187/1a19e16b-fe85-48b0-9998-f1d116d03523)
