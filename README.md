@@ -1,9 +1,9 @@
 # Cloud-Stream-Tracker
-Cloud Stream Tracker deployed on Google Cloud Platform. Utilizes GCP VM's for hosting. Built on Flask with MySQL, GCS and Pub/Sub APIs.
+Cloud Stream Tracker deployed on Google Cloud Platform. Utilizes Docker and Google Kubernetes Engine for deployment. Built on Flask with MySQL, GCS and Pub/Sub APIs.
 
-Users can access file content via an IP address hosted on a virtual machine (VM) within GCP. With the help of an HTTP request generator, 
-the system tracks each request. Any requests deemed erroneous, especially those originating from simulated 
-"banned countries", are relayed between VMs using Google's Pub/Sub API. Requests are stored in a MySQL instance hosted on GCP.
+Users can generate html files and send them to a Google Cloud Storage bucket using content-generator.py. The script will create 10,000 html files, with links referencing other generated files, effectively creating a reference network. 
+
+Users can access file content via an IP address of the Kubernetes cluster ip. With the help of the HTTP request simulator, requests from people with varying parameters are generated, such as country, ip, gender, age, income, time, and requested file. Any requests deemed erroneous, especially those originating from simulated "banned countries", are relayed between VMs using Google's Pub/Sub API. Requests are stored in a MySQL instance hosted on GCP.
 
 Below is a snapshot showcasing http access via browser, the generated requests and the corresponding erroneous request logs from the banned locations:
 
