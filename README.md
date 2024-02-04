@@ -1,5 +1,5 @@
 # Cloud-Request-Tracker
-Cloud Rquest Tracker deployed on Google Cloud Platform. Utilizes Docker and Google Kubernetes Engine for deployment. Built on Flask with MySQL, GCS and Pub/Sub APIs.
+Cloud Request Tracker deployed on Google Cloud Platform. Utilizes Docker and Google Kubernetes Engine for deployment. Built on Flask with MySQL, GCS and Pub/Sub APIs.
 
 Users can generate html files and send them to a Google Cloud Storage bucket using content-generator.py. The script will create 10,000 html files, with links referencing other generated files, effectively creating a reference network. 
 
