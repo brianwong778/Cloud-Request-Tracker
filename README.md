@@ -1,15 +1,28 @@
-# Cloud-Request-Tracker
-Cloud Request Tracker deployed on Google Cloud Platform. Utilizes Docker and Google Kubernetes Engine for deployment. Built on Flask with MySQL, GCS and Pub/Sub APIs.
+<h1 align="center">Cloud-Request-Tracker</h1>
 
-Users can generate html files and send them to a Google Cloud Storage bucket using content-generator.py. The script will create 10,000 html files, with links referencing other generated files, effectively creating a reference network. 
+<p align="center">
+  A Cloud Request Tracker deployed on <strong>Google Cloud Platform</strong>. This application leverages <strong>Docker</strong> and <strong>Google Kubernetes Engine (GKE)</strong> for efficient deployment and scalability. At its core, it's built using <strong>Flask</strong> for the web framework, with <strong>MySQL</strong> for database management, and integrates seamlessly with <strong>Google Cloud Storage (GCS)</strong> and <strong>Pub/Sub APIs</strong> for messaging and storage solutions.
+</p>
 
-Users can access file content via an IP address of the Kubernetes cluster. With the help of the HTTP request simulator, requests from people with varying parameters are generated, such as country, ip, gender, age, income, time, and requested file. Any requests deemed erroneous, especially those originating from simulated "banned countries", are relayed between VMs using Google's Pub/Sub API. Requests are stored in a MySQL instance hosted on GCP.
+## Features
 
-Below is a snapshot showcasing http access via browser, the generated requests and the corresponding erroneous request logs from the banned locations:
+- **Content Generation**: Users can utilize `content-generator.py` to generate HTML files, creating a network of 10,000 interlinked documents. These files are then stored in a Google Cloud Storage bucket, ready for access.
+- **Simulation and Access**: The system simulates HTTP requests with diverse parameters like country, IP, gender, age, income, time, and the requested file, allowing users to access file content through the IP address of the Kubernetes cluster.
+- **Error Handling**: Erroneous requests, particularly those originating from "banned countries", are efficiently managed and relayed between VMs using Google's robust Pub/Sub API, ensuring secure and reliable request handling.
+- **Data Storage**: All requests and their metadata are meticulously stored in a MySQL instance hosted on GCP, providing a comprehensive data management solution.
 
+## Visual Insights
 
-![2DA4D11A-A5CD-4B52-AC04-D59B09BF9CA0_1_201_a](https://github.com/brianwong778/Cloud-Stream-Tracker-Pub-Sub-/assets/113395187/6bfe1c61-d028-4b28-ac8d-cf25f52fff53)
+Below are snapshots providing insights into HTTP access via a browser, the dynamics of generated requests, and the handling of erroneous requests from restricted locations:
 
-![ezgif com-video-to-gif-converted](https://github.com/brianwong778/Cloud-Stream-Tracker/assets/113395187/f2873fc9-5530-479a-8cac-c30c10664965)
+<p align="center">
+  <img src="https://github.com/brianwong778/Cloud-Stream-Tracker-Pub-Sub-/assets/113395187/6bfe1c61-d028-4b28-ac8d-cf25f52fff53" alt="HTTP Access Snapshot">
+</p>
 
-![Screenshot 2023-12-12 at 9 48 28 PM](https://github.com/brianwong778/Cloud-Stream-Tracker/assets/113395187/1a19e16b-fe85-48b0-9998-f1d116d03523)
+<p align="center">
+  <img src="https://github.com/brianwong778/Cloud-Stream-Tracker/assets/113395187/f2873fc9-5530-479a-8cac-c30c10664965" alt="Generated Requests">
+</p>
+
+<p align="center">
+  <img src="https://github.com/brianwong778/Cloud-Stream-Tracker/assets/113395187/1a19e16b-fe85-48b0-9998-f1d116d03523" alt="Erroneous Request Logs">
+</p>
