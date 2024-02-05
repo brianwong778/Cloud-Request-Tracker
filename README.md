@@ -11,7 +11,7 @@
 - **Error Handling**: Erroneous requests, particularly those originating from "banned countries", are efficiently managed and relayed between VMs using Google's robust Pub/Sub API, ensuring secure and reliable request handling.
 - **Data Storage**: All requests and their metadata are meticulously stored in a MySQL instance hosted on GCP, providing a comprehensive data management solution.
 
-## Visual Insights
+## Demonstration
 
 Below are snapshots providing insights into HTTP access via a browser, the dynamics of generated requests, and the handling of erroneous requests from restricted locations:
 
